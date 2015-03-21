@@ -21,7 +21,8 @@ var PostSchema = new Schema ({
 	},
 	content: {
 		type: String,
-		required: 'Cannot be blank'
+		required: 'Cannot be blank',
+		trim: true
 	},	
 	tags : [String],
 	isPic: {

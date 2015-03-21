@@ -9,11 +9,11 @@ angular.module('games').controller('GamesController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new Game object
 			var game = new Games ({
-				post : this.post.push({
-						content: this.content,
-						isPic: this.isPic
-					}
-				)
+				post : []
+			});
+			game.post.push({
+				content: this.content,
+				isPic: this.isPic
 			});
 
 			// Redirect after save
