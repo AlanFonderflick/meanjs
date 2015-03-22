@@ -27,34 +27,6 @@ angular.module('games').controller('GamesController', ['$scope', '$stateParams',
 			});
 		};
 
-		// Remove existing Game
-		$scope.remove = function(game) {
-			if ( game ) { 
-				game.$remove();
-
-				for (var i in $scope.games) {
-					if ($scope.games [i] === game) {
-						$scope.games.splice(i, 1);
-					}
-				}
-			} else {
-				$scope.game.$remove(function() {
-					$location.path('games');
-				});
-			}
-		};
-
-		// Update existing Game
-		$scope.update = function() {
-			var game = $scope.game;
-
-			game.$update(function() {
-				$location.path('games/' + game._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
-
 		// Find a list of Games
 		$scope.find = function() {
 			$scope.games = Games.query();
@@ -66,5 +38,6 @@ angular.module('games').controller('GamesController', ['$scope', '$stateParams',
 				gameId: $stateParams.gameId
 			});
 		};
+
 	}
 ]);

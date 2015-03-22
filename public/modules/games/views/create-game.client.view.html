@@ -6,6 +6,13 @@
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
 
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+
                 <div class="form-group">
                     <div class="radio">
                       <label class="control-label" for="isPic1">
@@ -14,24 +21,23 @@
                       </label>
                     </div>
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="content" data-ng-model="content" placeholder="My text for starting the game">
-                    </div> 
-
                     <div class="radio">
                       <label class="control-label" for="isPic2">
                         <input type="radio" name="isPic" id="isPic2" data-ng-model="isPic" value="1">
                         Initiate a game with handcrafted <strong>drawing</strong>
                       </label>
-                    </div>
+                    </div> 
+
                 </div>  
 
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                <div class="form-group" ng-show="isPic==0">
+                    <input type="text" class="form-control" id="textContent" data-ng-model="textContent" placeholder="My text for starting the game">
+                </div> 
+
+                <div class="form-group" ng-show="isPic==1" data-ng-controller="CanvasDrawingController" >
+                    <p>My drawing for starting the game</p>
+                    <canvas height="300" width="500" id="pictureContent" data-ng-model="canvas"/>
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
 
             </fieldset>
         </form>
