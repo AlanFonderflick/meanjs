@@ -7,7 +7,7 @@ angular.module('games').directive('gamePost', [
 			   restrict: 'E',
 		       link: function(scope, element, attrs) {
 
-		       		//Get the correct path for image or text gamePost template
+		       		//Get the correct path for image/text gamePost template
 		           scope.getContentUrl = function() {
 		           		var templateType = '';
 						if(attrs.picture === 'false'){
