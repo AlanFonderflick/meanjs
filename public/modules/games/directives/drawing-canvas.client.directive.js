@@ -14,6 +14,7 @@ angular.module('games').directive('drawingCanvas', [
 		       	link: function($scope, element, attrs){
 
 		       		$scope.canvas = element[0];
+		       		$scope.drawing = '';
 		       		$scope.context = $scope.canvas.getContext('2d');
 		       		$scope.mousePressed = false ;
 		       		$scope.lastX = 0;
@@ -49,6 +50,7 @@ angular.module('games').directive('drawingCanvas', [
 
 					$scope.draw = function(x, y, isDown) {
 				    	if (isDown) {
+				    		$scope.save();
 					    	//console.log('Draw'+x+'x '+y+'y');
 					        $scope.context.beginPath();
 					        $scope.context.strokeStyle = '#df4b26';
@@ -67,6 +69,10 @@ angular.module('games').directive('drawingCanvas', [
 					    // Use the identity matrix while clearing the canvas
 					    $scope.context.setTransform(1, 0, 0, 1, 0, 0);
 					    $scope.context.clearRect(0, 0, $scope.context.canvas.width, $scope.context.canvas.height);
+					};
+
+					$scope.save = function(){
+						$scope.drawing = $scope.canvas.toDataURL('image/png');
 					};
 		       },
 		       	//templateUrl: 'modules/games/views/drawing-canvas.client.view.html'
