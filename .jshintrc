@@ -20,7 +20,8 @@
 	"globals": { // Globals variables.
 		"jasmine": true,
 		"angular": true,
-		"ApplicationConfiguration": true
+		"ApplicationConfiguration": true,
+		"$": false
 	},
 	"predef": [ // Extra globals.
 		"define",
@@ -38,5 +39,5 @@
 	],
 	"indent": 4, // Specify indentation spacing
 	"devel": true, // Allow development statements e.g. `console.log();`.
-	"noempty": true // Prohibit use of empty blocks.
+	"noempty": true // Prohibit use of empty blocks.	
 }
